@@ -1,13 +1,8 @@
-export interface IUser {
-  email?: string;
-  token?: string;
-}
+import { useContext } from "react";
+import { AuthContext } from ".";
 
-export interface IContext extends IUser {
-  authentica: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-}
+export const useAuth = () => {
+  const context = useContext(AuthContext);
 
-export interface IAuthProvider {
-  children: JSX.Element;
-}
+  return context;
+};
